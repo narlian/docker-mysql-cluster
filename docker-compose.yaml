@@ -25,5 +25,5 @@ kingshard:
   links:
     - mysql1
     - mysql2
-  entrypoint: ./etc/wait-for-it.sh mysql2:3306 -- kingshard " -config=./etc/ks1.yaml"
+  entrypoint: /go/src/github.com/flike/kingshard/etc/run.sh
 
