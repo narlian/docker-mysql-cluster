@@ -5,6 +5,8 @@ mysql1:
   environment:
    - MYSQL_ROOT_PASSWORD=123456
    - MYSQL_DATABASE=kingshard
+  volumes:
+   - ./db/mysql1:/var/lib/mysql
 
 mysql2:
   image: mysql:latest
@@ -13,6 +15,8 @@ mysql2:
   environment:
    - MYSQL_ROOT_PASSWORD=123456
    - MYSQL_DATABASE=kingshard
+  volumes:
+   - ./db/mysql1:/var/lib/mysql
 
 kingshard:
   image: kingshard
@@ -26,4 +30,3 @@ kingshard:
     - mysql1
     - mysql2
   entrypoint: /go/src/github.com/flike/kingshard/etc/run.sh
-
